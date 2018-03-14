@@ -1,0 +1,90 @@
+prog        -> prog1r A101 prog2r A102 program funcBody ; A100
+prog1r		-> EPSILON | classDecl prog1r
+prog2r		-> EPSILON | funcDef prog2r
+
+funcBody ->  { funcBody1p } A109
+
+classDecl -> class id classDecl1o A103 { classBody A104 } ; A116
+classBody -> type id classBody1p | EPSILON
+classBody1p -> varDecl1r A107 ; A111 classBody | ( fParams ) ; A110 classDecl2r
+
+classDecl1o	-> EPSILON | : id classDecl1r
+classDecl1r	-> EPSILON | , id classDecl1r
+classDecl2r	-> EPSILON | funcDecl classDecl2r
+
+funcDef -> funcHead funcBody ; A114
+funcDecl -> type id ( fParams ) ; A110
+funcHead -> type id funcHead1p ( fParams )
+funcHead1p	-> EPSILON A115 | :: id A117
+leftType -> int | float
+leftStat -> if ( expr ) then statBlock else statBlock ; A150 | for ( type id assignOp expr ; relExpr ; assignStat ) statBlock ; A152 | get ( variable A140 ) ; A153 | put ( expr ) ; A154 | return ( expr ) ; A155
+funcBody1p -> id funcBody1p2p | leftStat funcBody1p1r | EPSILON | leftType funcBody1p1p
+funcBody1p1r -> statement funcBody1p1r | EPSILON
+funcBody1p1p -> id varDecl1r A107 ; A111 funcBody1p
+funcBody1p2p -> funcBody1p1p | variable1p A140 assignOp expr ; A151 funcBody1p1r
+
+
+varDecl         ->  type id varDecl1r A107 ; A111
+varDecl1r	-> EPSILON | arraySize varDecl1r
+
+statBlock       -> { statBlock1r } A109 | statement A109 | EPSILON A109
+statBlock1r	-> EPSILON | statement statBlock1r
+
+statement       -> assignStat ; | if ( expr ) then statBlock else statBlock ; A150 | for ( type id assignOp expr ; relExpr ; assignStat ) statBlock ; A152 | get ( variable A140 ) ; A153 | put ( expr ) ; A154 | return ( expr ) ; A155
+
+
+assignStat -> variable A140 assignOp expr A151
+
+expr -> arithExpr relExpr1p
+relExpr -> arithExpr relOp arithExpr A161
+relExpr1p -> relOp arithExpr A161 | EPSILON
+arithExpr -> term arithExpr1p A122
+arithExpr1p -> addOp term A160 arithExpr1p | EPSILON
+
+term -> factor A121 term1p A120
+term1p -> multOp factor A162 term1p | EPSILON
+
+factor -> preIdnest factor1p A140 | intNum A121 | floatNum A121 | ( arithExpr ) A121 | not factor A163 A121 | sign factor A164 A121
+
+factor1p -> . preIdnest factor1p | EPSILON
+
+preIdnest -> id preIdnest1p
+preIdnest1p -> idnest1r A108 A141 | ( aParams ) A142
+
+
+functionCall -> id functionCall1p
+functionCall1p -> ( aParams ) A142 functionCall1p1p | idnest1r A108 . A141 functionCall | EPSILON A142
+functionCall1p1p -> . functionCall | EPSILON
+functionCall2r -> indice functionCall2r | EPSILON
+
+variable -> id variable1p
+variable1p -> idnest1r A108 A141 variable1p1p | ( aParams ) A142 variable1p1p
+variable1p1p -> . variable | EPSILON
+variable2r -> indice variable2r | EPSILON
+
+idnest -> id idnest1p
+idnest1p -> idnest1r . | ( aParams ) .
+idnest1r -> EPSILON | indice idnest1r
+indice -> [ arithExpr ]
+
+assignOp        -> =
+relOp           -> == | <> | < | > | <= | >=
+addOp           -> + | - | or
+
+
+multOp          -> * | / | and
+type            -> int | float | id
+sign            -> + | -
+arraySize       -> [ intNum ]
+
+fParams         -> type id fParams1r A107 fParams2r A112 A106 | EPSILON A106
+fParams1r	-> EPSILON | arraySize fParams1r
+fParams2r	-> EPSILON | fParamsTail fParams2r
+fParamsTail     -> , A112 type id fParams1r A107
+fParamsTail1r	-> EPSILON | arraySize fParamsTail1r
+
+aParams         -> expr aParams1r A105 | EPSILON A105
+aParams1r	-> EPSILON | aParamsTail aParams1r
+aParamsTail     -> , expr
+
+

@@ -1,0 +1,83 @@
+prog -> funcBody program prog2r prog1r 
+prog1r -> prog1r classDecl 
+classDecl -> classBody classDecl1o id class 
+class -> 
+id -> 
+classDecl1o -> classDecl1r id 
+id -> 
+classDecl1r -> EPSILON 
+EPSILON -> 
+classBody -> classBody1p id type 
+type -> int 
+int -> 
+id -> 
+classBody1p -> classBody varDecl1r 
+varDecl1r -> varDecl1r arraySize 
+arraySize -> intNum 
+intNum -> 
+varDecl1r -> varDecl1r arraySize 
+arraySize -> intNum 
+intNum -> 
+varDecl1r -> varDecl1r arraySize 
+arraySize -> intNum 
+intNum -> 
+varDecl1r -> varDecl1r arraySize 
+arraySize -> intNum 
+intNum -> 
+varDecl1r -> varDecl1r arraySize 
+arraySize -> intNum 
+intNum -> 
+varDecl1r -> varDecl1r arraySize 
+arraySize -> intNum 
+intNum -> 
+varDecl1r -> EPSILON 
+EPSILON -> 
+classBody -> classBody1p id type 
+type -> float 
+float -> 
+id -> 
+classBody1p -> classBody varDecl1r 
+varDecl1r -> EPSILON 
+EPSILON -> 
+classBody -> classBody1p id type 
+type -> int 
+int -> 
+id -> 
+classBody1p -> classDecl2r fParams 
+fParams -> fParams2r fParams1r id type 
+type -> int 
+int -> 
+id -> 
+fParams1r -> fParams1r arraySize 
+arraySize -> intNum 
+intNum -> 
+fParams1r -> EPSILON 
+EPSILON -> 
+fParams2r -> EPSILON 
+EPSILON -> 
+classDecl2r -> classDecl2r funcDecl 
+funcDecl -> fParams id type 
+type -> int 
+int -> 
+id -> 
+fParams -> fParams2r fParams1r id type 
+type -> int 
+int -> 
+id -> 
+fParams1r -> fParams1r arraySize 
+arraySize -> intNum 
+intNum -> 
+fParams1r -> EPSILON 
+EPSILON -> 
+fParams2r -> EPSILON 
+EPSILON -> 
+classDecl2r -> EPSILON 
+EPSILON -> 
+prog1r -> EPSILON 
+EPSILON -> 
+prog2r -> EPSILON 
+EPSILON -> 
+program -> 
+funcBody -> funcBody1p 
+funcBody1p -> EPSILON 
+EPSILON -> 

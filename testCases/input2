@@ -1,0 +1,9 @@
+int random() {
+float var1;
+int var2;
+var1 = 10 * 5 - 4 + 11 / 20 and 7.666 > 7.666e2;
+var2 = var1 + var2 ;
+} ;
+program {
+int x;
+};

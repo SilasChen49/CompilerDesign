@@ -1,0 +1,8 @@
+inputFile = testCases/input1,testCases/input2,testCases/input3,testCases/input4,testCases/input5,testCases/input6,testCases/input7,testCases/input8,testCases/input9
+outputFile = testCases/output1,testCases/output2,testCases/output3,testCases/output4,testCases/output5,testCases/output6,testCases/output7,testCases/output8,testCases/output9
+astFile = testCases/ast1,testCases/ast2,testCases/ast3,testCases/ast4,testCases/ast5,testCases/ast6,testCases/ast7,testCases/ast8,testCases/ast9
+errorFile = testCases/error1,testCases/error2,testCases/error3,testCases/error4,testCases/error5,testCases/error6,testCases/error7,testCases/error8,testCases/error9
+errorFile1 = testCases/error1
+atoccFile = testCases/a2cc
+grammarFile = testCases/grammar
+semanticGrammarFile = testCases/semanticGrammar

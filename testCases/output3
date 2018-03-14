@@ -1,0 +1,76 @@
+prog -> prog1r prog2r program funcBody ; 
+prog1r -> EPSILON 
+prog2r -> EPSILON 
+funcBody -> { funcBody1p } 
+funcBody1p -> leftType funcBody1p1p 
+leftType -> int 
+funcBody1p1p -> id varDecl1r ; funcBody1p 
+varDecl1r -> arraySize varDecl1r 
+arraySize -> [ intNum ] 
+varDecl1r -> EPSILON 
+funcBody1p -> leftType funcBody1p1p 
+leftType -> int 
+funcBody1p1p -> id varDecl1r ; funcBody1p 
+varDecl1r -> EPSILON 
+funcBody1p -> id funcBody1p2p 
+funcBody1p2p -> funcBody1p1p 
+funcBody1p1p -> id varDecl1r ; funcBody1p 
+varDecl1r -> EPSILON 
+funcBody1p -> leftStat funcBody1p1r 
+leftStat -> for ( type id assignOp expr ; relExpr ; assignStat ) statBlock ; 
+type -> int 
+assignOp -> = 
+expr -> arithExpr relExpr1p 
+arithExpr -> term arithExpr1p 
+term -> factor term1p 
+factor -> intNum 
+term1p -> EPSILON 
+arithExpr1p -> EPSILON 
+relExpr1p -> EPSILON 
+relExpr -> arithExpr relOp arithExpr 
+arithExpr -> term arithExpr1p 
+term -> factor term1p 
+factor -> preIdnest factor1p 
+preIdnest -> id preIdnest1p 
+preIdnest1p -> idnest1r 
+idnest1r -> EPSILON 
+factor1p -> EPSILON 
+term1p -> EPSILON 
+arithExpr1p -> EPSILON 
+relOp -> <= 
+arithExpr -> term arithExpr1p 
+term -> factor term1p 
+factor -> intNum 
+term1p -> EPSILON 
+arithExpr1p -> EPSILON 
+assignStat -> variable assignOp expr 
+variable -> id variable1p 
+variable1p -> idnest1r variable1p1p 
+idnest1r -> EPSILON 
+variable1p1p -> EPSILON 
+assignOp -> = 
+expr -> arithExpr relExpr1p 
+arithExpr -> term arithExpr1p 
+term -> factor term1p 
+factor -> preIdnest factor1p 
+preIdnest -> id preIdnest1p 
+preIdnest1p -> idnest1r 
+idnest1r -> EPSILON 
+factor1p -> EPSILON 
+term1p -> EPSILON 
+arithExpr1p -> addOp term arithExpr1p 
+addOp -> + 
+term -> factor term1p 
+factor -> intNum 
+term1p -> EPSILON 
+arithExpr1p -> EPSILON 
+relExpr1p -> EPSILON 
+statBlock -> { statBlock1r } 
+statBlock1r -> statement statBlock1r 
+statement -> get ( variable ) ; 
+variable -> id variable1p 
+variable1p -> idnest1r variable1p1p 
+idnest1r -> EPSILON 
+variable1p1p -> EPSILON 
+statBlock1r -> EPSILON 
+funcBody1p1r -> EPSILON 

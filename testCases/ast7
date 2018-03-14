@@ -1,0 +1,200 @@
+prog -> funcBody program prog2r prog1r 
+prog1r -> EPSILON 
+EPSILON -> 
+prog2r -> prog2r funcDef 
+funcDef -> funcBody funcHead 
+funcHead -> fParams funcHead1p id type 
+type -> int 
+int -> 
+id -> 
+funcHead1p -> EPSILON 
+EPSILON -> 
+fParams -> EPSILON 
+EPSILON -> 
+funcBody -> funcBody1p 
+funcBody1p -> funcBody1p1p leftType 
+leftType -> float 
+float -> 
+funcBody1p1p -> funcBody1p varDecl1r id 
+id -> 
+varDecl1r -> EPSILON 
+EPSILON -> 
+funcBody1p -> funcBody1p1p leftType 
+leftType -> int 
+int -> 
+funcBody1p1p -> funcBody1p varDecl1r id 
+id -> 
+varDecl1r -> EPSILON 
+EPSILON -> 
+funcBody1p -> funcBody1p2p id 
+id -> 
+funcBody1p2p -> funcBody1p1r expr assignOp variable1p 
+variable1p -> variable1p1p idnest1r 
+idnest1r -> EPSILON 
+EPSILON -> 
+variable1p1p -> EPSILON 
+EPSILON -> 
+assignOp -> = 
+= -> 
+expr -> relExpr1p arithExpr 
+arithExpr -> arithExpr1p term 
+term -> term1p factor 
+factor -> intNum 
+intNum -> 
+term1p -> term1p factor multOp 
+multOp -> * 
+* -> 
+factor -> intNum 
+intNum -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> arithExpr1p term addOp 
+addOp -> - 
+- -> 
+term -> term1p factor 
+factor -> intNum 
+intNum -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> arithExpr1p term addOp 
+addOp -> + 
++ -> 
+term -> term1p factor 
+factor -> intNum 
+intNum -> 
+term1p -> term1p factor multOp 
+multOp -> * 
+* -> 
+factor -> 
+term1p -> term1p factor multOp 
+multOp -> * 
+* -> 
+factor -> 
+term1p -> term1p factor multOp 
+multOp -> / 
+/ -> 
+factor -> intNum 
+intNum -> 
+term1p -> term1p factor multOp 
+multOp -> and 
+and -> 
+factor -> floatNum 
+floatNum -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> EPSILON 
+EPSILON -> 
+relExpr1p -> arithExpr relOp 
+relOp -> > 
+> -> 
+arithExpr -> arithExpr1p term 
+term -> term1p factor 
+factor -> floatNum 
+floatNum -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> EPSILON 
+EPSILON -> 
+funcBody1p1r -> funcBody1p1r statement 
+statement -> assignStat 
+assignStat -> expr assignOp variable 
+variable -> variable1p id 
+id -> 
+variable1p -> variable1p1p idnest1r 
+idnest1r -> EPSILON 
+EPSILON -> 
+variable1p1p -> EPSILON 
+EPSILON -> 
+assignOp -> = 
+= -> 
+expr -> relExpr1p arithExpr 
+arithExpr -> arithExpr1p term 
+term -> term1p factor 
+factor -> factor1p preIdnest 
+preIdnest -> preIdnest1p id 
+id -> 
+preIdnest1p -> idnest1r 
+idnest1r -> EPSILON 
+EPSILON -> 
+factor1p -> EPSILON 
+EPSILON -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> arithExpr1p term addOp 
+addOp -> + 
++ -> 
+term -> term1p factor 
+factor -> factor1p preIdnest 
+preIdnest -> preIdnest1p id 
+id -> 
+preIdnest1p -> idnest1r 
+idnest1r -> EPSILON 
+EPSILON -> 
+factor1p -> EPSILON 
+EPSILON -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> EPSILON 
+EPSILON -> 
+relExpr1p -> arithExpr relOp 
+relOp -> == 
+== -> 
+arithExpr -> 
+funcBody1p1r -> EPSILON 
+EPSILON -> 
+prog2r -> EPSILON 
+EPSILON -> 
+program -> 
+funcBody -> funcBody1p 
+funcBody1p -> funcBody1p1p leftType 
+leftType -> int 
+int -> 
+funcBody1p1p -> funcBody1p varDecl1r id 
+id -> 
+varDecl1r -> EPSILON 
+EPSILON -> 
+funcBody1p -> funcBody1p2p id 
+id -> 
+funcBody1p2p -> funcBody1p1p 
+funcBody1p1p -> funcBody1p varDecl1r id 
+id -> 
+varDecl1r -> EPSILON 
+EPSILON -> 
+funcBody1p -> funcBody1p2p id 
+id -> 
+funcBody1p2p -> funcBody1p1r expr assignOp variable1p 
+variable1p -> variable1p1p idnest1r 
+idnest1r -> EPSILON 
+EPSILON -> 
+variable1p1p -> EPSILON 
+EPSILON -> 
+assignOp -> = 
+= -> 
+expr -> relExpr1p arithExpr 
+arithExpr -> arithExpr1p term 
+term -> term1p factor 
+factor -> factor1p preIdnest 
+preIdnest -> preIdnest1p id 
+id -> 
+preIdnest1p -> idnest1r 
+idnest1r -> EPSILON 
+EPSILON -> 
+factor1p -> EPSILON 
+EPSILON -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> EPSILON 
+EPSILON -> 
+relExpr1p -> arithExpr relOp 
+relOp -> == 
+== -> 
+arithExpr -> arithExpr1p term 
+term -> term1p factor 
+factor -> intNum 
+intNum -> 
+term1p -> EPSILON 
+EPSILON -> 
+arithExpr1p -> EPSILON 
+EPSILON -> 
+funcBody1p1r -> EPSILON 
+EPSILON -> 

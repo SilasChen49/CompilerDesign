@@ -1,0 +1,129 @@
+fParamsTail -> , type id fParams1r SA100 
+sign -> + SA101 
+sign -> - SA102 
+aParams -> expr aParams1r SA103 
+aParams -> EPSILON SA104 
+leftType -> int SA105 
+leftType -> float SA106 
+arithExpr1p -> addOp term arithExpr1p SA107 
+arithExpr1p -> EPSILON SA108 
+type -> int SA109 
+type -> float SA110 
+type -> id SA111 
+arithExpr -> term arithExpr1p SA112 
+idnest -> id idnest1p SA113 
+multOp -> * SA114 
+multOp -> / SA115 
+multOp -> and SA116 
+factor1p -> . factor SA117 
+factor1p -> EPSILON SA118 
+classDecl1r -> EPSILON SA119 
+classDecl1r -> , id classDecl1r SA120 
+classDecl1o -> EPSILON SA121 
+classDecl1o -> : id classDecl1r SA122 
+leftStat -> if ( expr ) then statBlock else statBlock ; SA123 
+leftStat -> for ( type id assignOp expr ; relExpr ; assignStat ) statBlock ; SA124 
+leftStat -> get ( variable ) ; SA125 
+leftStat -> put ( expr ) ; SA126 
+leftStat -> return ( expr ) ; SA127 
+functionCall2r -> indice functionCall2r SA128 
+functionCall2r -> EPSILON SA129 
+funcBody1p1r -> statement funcBody1p1r SA130 
+funcBody1p1r -> EPSILON SA131 
+fParams1r -> EPSILON SA132 
+fParams1r -> arraySize fParams1r SA133 
+funcBody1p1p -> id varDecl1r ; funcBody1p SA134 
+prog1r -> EPSILON SA135 
+prog1r -> classDecl prog1r SA136 
+preIdnest -> id preIdnest1p SA137 
+indice -> [ arithExpr ] SA138 
+classDecl -> class id classDecl1o { classBody } ; SA139 
+relOp -> == SA140 
+relOp -> <> SA141 
+relOp -> < SA142 
+relOp -> > SA143 
+relOp -> <= SA144 
+relOp -> >= SA145 
+preIdnest1p -> idnest1r SA146 
+preIdnest1p -> ( aParams ) SA147 
+funcDecl -> type id ( fParams ) ; SA148 
+functionCall -> id functionCall1p SA149 
+varDecl1r -> EPSILON SA150 
+varDecl1r -> arraySize varDecl1r SA151 
+funcBody1p2p -> funcBody1p1p SA152 
+funcBody1p2p -> variable1p assignOp expr ; funcBody1p1r SA153 
+funcBody -> { funcBody1p } SA154 
+functionCall1p1p -> . functionCall SA155 
+functionCall1p1p -> EPSILON SA156 
+funcDef -> funcHead funcBody ; SA157 
+aParamsTail -> , expr SA158 
+classBody1p -> varDecl1r ; classBody SA159 
+classBody1p -> ( fParams ) ; classDecl2r SA160 
+variable1p -> idnest1r variable1p1p SA161 
+variable1p -> ( aParams ) . variable SA162 
+prog2r -> EPSILON SA163 
+prog2r -> funcDef prog2r SA164 
+assignOp -> = SA165 
+fParams -> type id fParams1r fParams2r SA166 
+fParams -> EPSILON SA167 
+variable1p1p -> . variable SA168 
+variable1p1p -> EPSILON SA169 
+funcHead1p -> EPSILON SA170 
+funcHead1p -> :: id SA171 
+statBlock -> { statBlock1r } SA172 
+statBlock -> statement SA173 
+statBlock -> EPSILON SA174 
+idnest1r -> EPSILON SA175 
+idnest1r -> indice idnest1r SA176 
+statBlock1r -> EPSILON SA177 
+statBlock1r -> statement statBlock1r SA178 
+idnest1p -> idnest1r . SA179 
+idnest1p -> ( aParams ) . SA180 
+statement -> assignStat ; SA181 
+statement -> if ( expr ) then statBlock else statBlock ; SA182 
+statement -> for ( type id assignOp expr ; relExpr ; assignStat ) statBlock ; SA183 
+statement -> get ( variable ) ; SA184 
+statement -> put ( expr ) ; SA185 
+statement -> return ( expr ) ; SA186 
+classBody -> type id classBody1p SA187 
+classBody -> EPSILON SA188 
+funcBody1p -> id funcBody1p2p SA189 
+funcBody1p -> leftStat funcBody1p1r SA190 
+funcBody1p -> EPSILON SA191 
+funcBody1p -> leftType funcBody1p1p SA192 
+expr -> arithExpr relExpr1p SA193 
+term -> factor term1p SA194 
+relExpr -> arithExpr relOp arithExpr SA195 
+factor -> preIdnest factor1p SA196 
+factor -> intNum SA197 
+factor -> floatNum SA198 
+factor -> ( arithExpr ) SA199 
+factor -> not factor SA200 
+factor -> sign factor SA201 
+variable2r -> indice variable2r SA202 
+variable2r -> EPSILON SA203 
+addOp -> + SA204 
+addOp -> - SA205 
+addOp -> or SA206 
+arraySize -> [ intNum ] SA207 
+prog -> prog1r prog2r program funcBody ; SA208 
+relExpr1p -> relOp arithExpr SA209 
+relExpr1p -> EPSILON SA210 
+fParamsTail1r -> EPSILON SA211 
+fParamsTail1r -> arraySize fParamsTail1r SA212 
+aParams1r -> EPSILON SA213 
+aParams1r -> aParamsTail aParams1r SA214 
+classDecl2r -> EPSILON SA215 
+classDecl2r -> funcDecl classDecl2r SA216 
+functionCall1p -> ( aParams ) functionCall1p1p SA217 
+functionCall1p -> idnest1r . functionCall SA218 
+functionCall1p -> EPSILON SA219 
+variable -> id variable1p SA220 
+assignStat -> variable assignOp expr SA221 
+varDecl -> type id varDecl1r ; SA222 
+term1p -> multOp factor term1p SA223 
+term1p -> EPSILON SA224 
+fParams2r -> EPSILON SA225 
+fParams2r -> fParamsTail fParams2r SA226 
+funcHead -> type id funcHead1p ( fParams ) SA227 
+fParamsTail -> , A112 type id fParams1r A107 

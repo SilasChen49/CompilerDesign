@@ -1,0 +1,91 @@
+prog -> prog1r prog2r program funcBody ; 
+prog1r -> EPSILON 
+prog2r -> funcDef prog2r 
+funcDef -> funcHead funcBody ; 
+funcHead -> type id funcHead1p ( fParams ) 
+type -> int 
+funcHead1p -> EPSILON 
+fParams -> EPSILON 
+funcBody -> { funcBody1p } 
+funcBody1p -> leftType funcBody1p1p 
+leftType -> float 
+funcBody1p1p -> id varDecl1r ; funcBody1p 
+varDecl1r -> EPSILON 
+funcBody1p -> leftType funcBody1p1p 
+leftType -> int 
+funcBody1p1p -> id varDecl1r ; funcBody1p 
+varDecl1r -> EPSILON 
+funcBody1p -> id funcBody1p2p 
+funcBody1p2p -> variable1p assignOp expr ; funcBody1p1r 
+variable1p -> idnest1r variable1p1p 
+idnest1r -> EPSILON 
+variable1p1p -> EPSILON 
+assignOp -> = 
+expr -> arithExpr relExpr1p 
+arithExpr -> term arithExpr1p 
+term -> factor term1p 
+factor -> intNum 
+term1p -> multOp factor term1p 
+multOp -> * 
+factor -> intNum 
+term1p -> EPSILON 
+arithExpr1p -> addOp term arithExpr1p 
+addOp -> - 
+term -> factor term1p 
+factor -> intNum 
+term1p -> EPSILON 
+arithExpr1p -> addOp term arithExpr1p 
+addOp -> + 
+term -> factor term1p 
+factor -> intNum 
+term1p -> multOp factor term1p 
+multOp -> / 
+factor -> intNum 
+term1p -> multOp factor term1p 
+multOp -> and 
+factor -> floatNum 
+term1p -> EPSILON 
+arithExpr1p -> EPSILON 
+relExpr1p -> relOp arithExpr 
+relOp -> > 
+arithExpr -> term arithExpr1p 
+term -> factor term1p 
+factor -> floatNum 
+term1p -> EPSILON 
+arithExpr1p -> EPSILON 
+funcBody1p1r -> statement funcBody1p1r 
+statement -> assignStat ; 
+assignStat -> variable assignOp expr 
+variable -> id variable1p 
+variable1p -> idnest1r variable1p1p 
+idnest1r -> EPSILON 
+variable1p1p -> EPSILON 
+assignOp -> = 
+expr -> arithExpr relExpr1p 
+arithExpr -> term arithExpr1p 
+term -> factor term1p 
+factor -> preIdnest factor1p 
+preIdnest -> id preIdnest1p 
+preIdnest1p -> idnest1r 
+idnest1r -> EPSILON 
+factor1p -> EPSILON 
+term1p -> EPSILON 
+arithExpr1p -> addOp term arithExpr1p 
+addOp -> + 
+term -> factor term1p 
+factor -> preIdnest factor1p 
+preIdnest -> id preIdnest1p 
+preIdnest1p -> idnest1r 
+idnest1r -> EPSILON 
+factor1p -> EPSILON 
+term1p -> EPSILON 
+arithExpr1p -> EPSILON 
+relExpr1p -> EPSILON 
+funcBody1p1r -> EPSILON 
+prog2r -> EPSILON 
+funcBody -> { funcBody1p } 
+funcBody1p -> leftType funcBody1p1p 
+leftType -> int 
+funcBody1p1p -> id varDecl1r ; funcBody1p 
+varDecl1r -> EPSILON 
+funcBody1p -> EPSILON 

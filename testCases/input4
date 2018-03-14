@@ -1,0 +1,37 @@
+class util{
+  int var1[4][5][6][7][8][9];
+  float var2;
+  int findMax (int array[100] ) ;
+};
+
+class util : util {
+  int var1[4][5][6][7][8][9];
+  float var2;
+  int findMax (int array[100] ) ;
+  int findMax (int array[100] ) ;
+  };
+
+int random() {
+  float var1;
+  int var2;
+  var1 = 10 * 5 - 4 + 11 / 20 and 7.666 > 7.666e2;
+  var2 = var1 + var2 ;
+};
+
+int util :: ramdom(int x, int y, int x){
+    float var1;
+    var1 = vat2 * 10 - 5 + 1 * not -2 ;
+};
+
+program {
+  int array[100];
+  int idx;
+  Apple apple;
+  if ( 1>2) then {
+  put(idx);
+  }else{
+  return (idx);
+  };
+  for(int i=0; i<=100; i = i+1){ get(idx); };
+  array[utility.var[1][2][3][idx+maxval]][1][2][3].var = 2;
+};

@@ -1,0 +1,16 @@
+Does not find error in the Follow Sets, does scan()
+Error token : ==
+ERROR : Line 4
+
+Find error in the Follow Sets, does pop()
+Error token : *
+ERROR : Line 4
+
+Find error in the Follow Sets, does pop()
+Error token : /
+ERROR : Line 4
+
+Find error in the Follow Sets, does pop()
+Error token : ;
+ERROR : Line 5
+

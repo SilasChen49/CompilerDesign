@@ -1,0 +1,48 @@
+prog -> prog1r prog2r program funcBody ; 
+prog1r -> classDecl prog1r 
+classDecl -> class id classDecl1o { classBody } ; 
+classDecl1o -> : id classDecl1r 
+classDecl1r -> EPSILON 
+classBody -> type id classBody1p 
+type -> int 
+classBody1p -> varDecl1r ; classBody 
+varDecl1r -> arraySize varDecl1r 
+arraySize -> [ intNum ] 
+varDecl1r -> arraySize varDecl1r 
+arraySize -> [ intNum ] 
+varDecl1r -> arraySize varDecl1r 
+arraySize -> [ intNum ] 
+varDecl1r -> arraySize varDecl1r 
+arraySize -> [ intNum ] 
+varDecl1r -> arraySize varDecl1r 
+arraySize -> [ intNum ] 
+varDecl1r -> arraySize varDecl1r 
+arraySize -> [ intNum ] 
+varDecl1r -> EPSILON 
+classBody -> type id classBody1p 
+type -> float 
+classBody1p -> varDecl1r ; classBody 
+varDecl1r -> EPSILON 
+classBody -> type id classBody1p 
+type -> int 
+classBody1p -> ( fParams ) ; classDecl2r 
+fParams -> type id fParams1r fParams2r 
+type -> int 
+fParams1r -> arraySize fParams1r 
+arraySize -> [ intNum ] 
+fParams1r -> EPSILON 
+fParams2r -> EPSILON 
+classDecl2r -> funcDecl classDecl2r 
+funcDecl -> type id ( fParams ) ; 
+type -> int 
+fParams -> type id fParams1r fParams2r 
+type -> int 
+fParams1r -> arraySize fParams1r 
+arraySize -> [ intNum ] 
+fParams1r -> EPSILON 
+fParams2r -> EPSILON 
+classDecl2r -> EPSILON 
+prog1r -> EPSILON 
+prog2r -> EPSILON 
+funcBody -> { funcBody1p } 
+funcBody1p -> EPSILON 

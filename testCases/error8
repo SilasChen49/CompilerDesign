@@ -1,0 +1,48 @@
+Does not find error in the Follow Sets, does scan()
+Error token : ]
+ERROR : Line 2
+
+Does not find error in the Follow Sets, does scan()
+Error token : ]
+ERROR : Line 2
+
+Does not find error in the Follow Sets, does scan()
+Error token : ]
+ERROR : Line 2
+
+Does not find error in the Follow Sets, does scan()
+Error token : *
+ERROR : Line 4
+
+Does not find error in the Follow Sets, does scan()
+Error token : ]
+ERROR : Line 4
+
+Does not find error in the Follow Sets, does scan()
+Error token : ==
+ERROR : Line 5
+
+Does not find error in the Follow Sets, does scan()
+Error token : ]
+ERROR : Line 5
+
+Find error in the Follow Sets, does pop()
+Error token : *
+ERROR : Line 11
+
+Find error in the Follow Sets, does pop()
+Error token : ;
+ERROR : Line 11
+
+Find error in the Follow Sets, does pop()
+Error token : ;
+ERROR : Line 12
+
+Does not find error in the Follow Sets, does scan()
+Error token : )
+ERROR : Line 20
+
+Does not find error in the Follow Sets, does scan()
+Error token : ;
+ERROR : Line 20
+
